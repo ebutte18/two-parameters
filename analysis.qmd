@@ -10,6 +10,8 @@ execute:
 #| message: false
 library(tidyverse)
 library(primer.data)
+library(tidymodels)
+library(broom)
 ```
 
 
@@ -23,4 +25,9 @@ x <- nhanes |>
   slice_sample(n = 50) 
 ```
 
-Today we will attempt to predict a Marine Corps recruit's height. The data source used will be "nhanes" and will be utilized to predict whether we can predict a recruit's height.
+```{r}
+#| cache: true
+fit_height <- hat(\text(height)) = 162.18 + 15.94 \cdot \text(sexMale)
+```
+
+Today we will attempt to predict a Marine Corps recruit's height. The data source used will be "nhanes" and will be utilized to predict whether we can predict a recruit's height. A potential weakness in my model is that there is nothing that accounts for familuy genetics, which is a massive predictor of height. 
