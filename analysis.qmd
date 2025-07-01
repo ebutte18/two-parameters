@@ -2,5 +2,25 @@
 title: "Two-Parameters"
 author: "Eric Butte"
 format: html
+execute: 
+  echo: false
 ---
 
+```{r}
+#| message: false
+library(tidyverse)
+library(primer.data)
+```
+
+
+```{r}
+set.seed(10)
+
+x <- nhanes |>
+  filter(age >= 18 & age <= 27) |>
+  select(height, sex) |>
+  drop_na() |>
+  slice_sample(n = 50) 
+```
+
+Today we will attempt to predict a Marine Corps recruit's height. The data source used will be "nhanes" and will be utilized to predict whether we can predict a recruit's height.
